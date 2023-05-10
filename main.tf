@@ -1,5 +1,8 @@
 provider "azurerm" {
-  features {}
+  subscription_id = "78ed3fc4-22b2-4323-84b7-a1f615b92441"
+  client_id       = "f4756ab6-d92f-46bb-b660-37a6ed572535"
+  client_secret   = "30a143b9-0751-4e32-93b8-8908d8ffb31c"
+  tenant_id       = "cd7b7b52-7c78-491d-94bc-efc9c72c6eda"
 }
 
 resource "azurerm_resource_group" "desafio" {
