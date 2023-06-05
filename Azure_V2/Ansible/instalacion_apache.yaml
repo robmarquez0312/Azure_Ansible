@@ -1,0 +1,36 @@
+- name: Ansible Playbook to Install and Setup Apache on Ubuntu
+  hosts: mis_servidores
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Install latest version of Apache
+      apt: name=apache2 update_cache=yes state=latest
+
+    - name: Install PHP
+      apt: name=php state=present
+
+    - name: Install PHP module for Apache
+      apt: name=libapache2-mod-php state=present
+
+    - name: Install PHP MySQL module
+      apt: name=php-mysql state=present
+ 
+    - name: Create document root for domain configured in host variable
+      copy:
+          content: "Desafio Azure / Ansible"
+          dest: "/var/www/html/index.html"
+          owner: www-data
+          group: www-data
+          mode: "0755"
+
+    - name: "UFW firewall allow HTTP on port {{ http_port }}"
+      ufw:
+        rule: allow
+        port: "{{ http_port }}"
+        proto: tcp
+
+  handlers:
+    - name: restart-apache
+      service:
+        name: apache2
+        state: restarted

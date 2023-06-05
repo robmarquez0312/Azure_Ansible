@@ -1,0 +1,22 @@
+# Ansible variables are defined in the vars-myvars.yaml file:
+# # Variables for Ansible
+# # This file is used by Ansible to know which variables to use for each host.
+
+
+# Asset Prefix
+vm_name: "srmgpl002v001"
+
+# Random Generated Number
+rnum: "MYRANDOM"
+
+# Http Host
+http_host: "html"
+
+# Http Port
+http_port: "80"
+
+# Http Conf
+http_conf: "html.conf"
+
+# Ip Address
+ip_address: "4.245.200.49"

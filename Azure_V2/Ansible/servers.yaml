@@ -1,0 +1,18 @@
+# Host file for Ansible
+# This file is used by Ansible to know which hosts to connect to
+# and what variables to use for each host.
+#
+myservers:
+  hosts:
+    server1:
+      ansible_host: 75.246.41.140
+      ansible_port: 22
+      ansible_ssh_user: azureuser
+      ansible_ssh_private_key_file: /home/MAR53799/Documents/Ansible/Azure/id_rsaazure
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_connection: ssh
+      http_conf: mydomain.local.conf
+      
+vars:
+  http_port: 80
+  http_host: mydomain.local
